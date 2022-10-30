@@ -2,9 +2,8 @@
 const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
-	// INFO: https://nextjs.org/docs/api-reference/next/image#unoptimized
 	images: {
-		unoptimized: true,
+		unoptimized: true, // INFO: https://nextjs.org/docs/api-reference/next/image#unoptimized
 	},
 };
 
