@@ -35,6 +35,7 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           yarn build
+          touch ./out/.nojekyll # add this for loading JS file
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
