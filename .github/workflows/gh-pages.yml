@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
-    working-directory: ./client
     steps:
       - uses: actions/checkout@v2
 
@@ -32,11 +31,13 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Build
+        working-directory: ./client
         run: |
           yarn install --frozen-lockfile
           yarn build
 
       - name: Deploy
+        working-directory: ./client
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
